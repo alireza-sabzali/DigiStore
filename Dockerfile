@@ -2,11 +2,11 @@ FROM python:latest
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /insta
-WORKDIR /insta
-COPY . /insta
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
 
-ADD ./requirements.txt /insta
+ADD ./requirements.txt /app
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt

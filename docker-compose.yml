@@ -9,9 +9,9 @@ services:
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     restart: always
     volumes:
-      - .:/insta
-      - insta_static_volume:/insta/static
-      - insta_media_volume:/insta/files
+      - .:/app
+      - insta_static_volume:/app/static
+      - insta_media_volume:/app/files
     ports:
       - "8000:8000"
     networks:
