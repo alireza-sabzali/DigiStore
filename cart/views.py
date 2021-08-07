@@ -1,18 +1,19 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .cart import CartApp
 from .serializers import CartSerializer
 
 
-class CartDetailView(generics.GenericAPIView):
+class CartDetailView(APIView):
 
     def get(self, request):
         cart = CartApp(self.request.user)
         return Response(cart.result(), status=status.HTTP_200_OK)
 
 
-class CartAddView(generics.GenericAPIView):
+class CartAddView(APIView):
 
     def post(self, request, product_id):
         cart = CartApp(self.request.user)
@@ -23,7 +24,7 @@ class CartAddView(generics.GenericAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class CartRemoveView(generics.GenericAPIView):
+class CartRemoveView(APIView):
 
     def delete(self, request, product_id):
         cart = CartApp(self.request.user)

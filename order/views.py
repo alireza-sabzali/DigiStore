@@ -6,9 +6,10 @@ from cart.cart import CartApp
 from .models import Order, OrderItem
 from .serializers import OrderItemSerializer
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 
 
-class OrderListView(generics.GenericAPIView):
+class OrderListView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, order_id):
@@ -17,7 +18,7 @@ class OrderListView(generics.GenericAPIView):
         return Response(serializer.data)
 
 
-class OrderCreateView(generics.GenericAPIView):
+class OrderCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):

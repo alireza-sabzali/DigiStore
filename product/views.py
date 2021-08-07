@@ -7,6 +7,7 @@ from product.models import Product, Color, Comments, Images
 from .permissions import IsAdminOrReadOnly, IsAdmin
 from .serializers import ProductSerializer, CommentSerializer, \
     ImageSerializer, ColorSerializer
+from rest_framework.views import APIView
 
 
 # ============= Product Views =====================
@@ -25,7 +26,7 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 # ============= Comment Views =====================
-class CommentCreateView(generics.GenericAPIView):
+class CommentCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
@@ -45,7 +46,7 @@ class CommentDeleteView(generics.DestroyAPIView):
 
 
 # ============= Color Views =====================
-class ColorCreateView(generics.GenericAPIView):
+class ColorCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
@@ -65,7 +66,7 @@ class ColorDeleteView(generics.DestroyAPIView):
 
 
 # ============= Image Views =====================
-class ImageCreateView(generics.GenericAPIView):
+class ImageCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
