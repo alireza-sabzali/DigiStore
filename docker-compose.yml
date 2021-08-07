@@ -16,6 +16,7 @@ services:
       - "8000:8000"
     networks:
       - app_network
+      - nginx_network
     depends_on:
       - db
   db:
@@ -40,4 +41,6 @@ volumes:
     external: true
 networks:
   app_network:
+    external: true
+  nginx_network:
     external: true
