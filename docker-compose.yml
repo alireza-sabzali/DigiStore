@@ -10,8 +10,8 @@ services:
     restart: always
     volumes:
       - .:/app
-      - insta_static_volume:/app/static
-      - insta_media_volume:/app/files
+      - app_static_volume:/app/static
+      - app_media_volume:/app/files
     ports:
       - "8000:8000"
     networks:
@@ -35,9 +35,9 @@ services:
 volumes:
   postgres_data:
     external: true
-  insta_static_volume:
+  app_static_volume:
     external: true
-  insta_media_volume:
+  app_media_volume:
     external: true
 networks:
   app_network:

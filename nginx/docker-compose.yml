@@ -9,15 +9,15 @@ services:
     ports:
       - "80:80"
     volumes:
-      - insta_static_volume:/blogpy/static
-      - insta_media_volume:/blogpy/files
+      - app_static_volume:/app/static
+      - app_media_volume:/app/files
     networks:
       - nginx_network
 
 volumes:
-  insta_static_volume:
+  app_static_volume:
     external: true
-  insta_media_volume:
+  app_media_volume:
     external: true
 networks:
   nginx_network:
