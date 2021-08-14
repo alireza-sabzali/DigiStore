@@ -10,8 +10,10 @@ from .serializers import ProductSerializer, CommentSerializer, \
     ImageSerializer, ColorSerializer
 
 
-# ============= Product Views =====================
 class ProductListView(generics.ListCreateAPIView):
+    """
+        List all code product, or create a new product
+    """
     permission_classes = [IsAdminOrReadOnly]
 
     queryset = Product.objects.all()
@@ -19,14 +21,19 @@ class ProductListView(generics.ListCreateAPIView):
 
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+        Retrieve, update or delete a code product.
+    """
     permission_classes = [IsAdminOrReadOnly]
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-# ============= Comment Views =====================
 class CommentCreateView(APIView):
+    """
+        create a new comment
+    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
@@ -39,14 +46,19 @@ class CommentCreateView(APIView):
 
 
 class CommentDeleteView(generics.DestroyAPIView):
+    """
+        delete a comment
+    """
     permission_classes = [IsAuthenticated]
 
     queryset = Comments.objects.all()
     serializer_class = CommentSerializer
 
 
-# ============= Color Views =====================
 class ColorCreateView(APIView):
+    """
+        create a new color
+    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
@@ -59,14 +71,19 @@ class ColorCreateView(APIView):
 
 
 class ColorDeleteView(generics.DestroyAPIView):
+    """
+        delete a color
+    """
     permission_classes = [IsAuthenticated]
 
     queryset = Color.objects.all()
     serializer_class = ColorSerializer
 
 
-# ============= Image Views =====================
 class ImageCreateView(APIView):
+    """
+        create a new image
+    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, product_id):
@@ -79,6 +96,9 @@ class ImageCreateView(APIView):
 
 
 class ImageDeleteView(generics.DestroyAPIView):
+    """
+        delete a image
+    """
     permission_classes = [IsAuthenticated]
 
     queryset = Images.objects.all()
