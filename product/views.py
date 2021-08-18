@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
@@ -16,8 +17,16 @@ class ProductListView(generics.ListCreateAPIView):
     """
     permission_classes = [IsAdminOrReadOnly]
 
-    queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        if 'product' in cache:
+            products = cache.get('product')
+            return products
+        else:
+            products = Product.objects.all()
+            cache.set('product', products, timeout=300)
+            return products
 
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
