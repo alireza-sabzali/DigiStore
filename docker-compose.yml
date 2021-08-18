@@ -19,6 +19,7 @@ services:
       - nginx_network
     depends_on:
       - db
+      - redis
   db:
     container_name: database
     image: postgres
@@ -31,6 +32,13 @@ services:
       - app_network
     env_file:
       - ./.env.db
+  redis:
+    container_name: redisdb
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
 
 volumes:
   postgres_data:
