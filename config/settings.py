@@ -58,12 +58,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-        'PORT': config('PORT'),
+        'ENGINE': config('SQL_ENGINE'),
+        'NAME': config('SQL_DATABASE'),
+        'USER': config('SQL_USER'),
+        'PASSWORD': config('SQL_PASSWORD'),
+        'HOST': config('SQL_HOST'),
+        'PORT': config('SQL_PORT'),
     }
 }
 
@@ -118,6 +118,6 @@ SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'account.backends.JWTAuthentication',
+        'accounts.backends.JWTAuthentication',
     ),
 }

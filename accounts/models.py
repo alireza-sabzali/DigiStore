@@ -36,7 +36,7 @@ class User(AbstractBaseUser):
     def access_token(self):
         access_token_payload = {
             'user_id': self.pk,
-            'exp': datetime.utcnow() + timedelta(days=0, seconds=30),
+            'exp': datetime.utcnow() + timedelta(days=0, minutes=5),
             'iat': datetime.utcnow(),
         }
         access_token = jwt.encode(access_token_payload,
