@@ -17,13 +17,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # third party
-    'dj_rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'dj_rest_auth.registration',
-
     'rest_framework',
 
     # local apps
@@ -125,15 +118,6 @@ SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'account.backends.JWTAuthentication',
     ),
-}
-
-REST_USE_JWT = True
-
-JWT_AUTH_COOKIE = 'my-app-auth'
-JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-
-REST_AUTH_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'accounts.serializers.CreateUserSerializer',
 }
