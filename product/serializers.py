@@ -13,7 +13,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comments
-        fields = ('user', 'text', 'created')
+        fields = ('user', 'product', 'text', 'created')
 
 
 class ColorSerializer(serializers.ModelSerializer):
