@@ -9,9 +9,7 @@ urlpatterns = [
     path('comment/create/<int:product_id>/', views.CommentCreateView.as_view()),
     path('comment/delete/<int:pk>/', views.CommentDeleteView.as_view()),
 
-    path('color/create/<int:product_id>/', views.ColorCreateView.as_view()),
     path('color/delete/<int:pk>/', views.ColorDeleteView.as_view()),
 
-    path('image/create/<int:product_id>/', views.ImageCreateView.as_view()),
     path('image/delete/<int:pk>/', views.ImageDeleteView.as_view()),
 ]
