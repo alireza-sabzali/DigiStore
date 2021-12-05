@@ -35,11 +35,14 @@ in the root of project.
 you should create .env and .env.db files like this:
 
 .env.db
+```
 POSTGRES_USER=hello_django
 POSTGRES_PASSWORD=hello_django
 POSTGRES_DB=hello_django_prod
+```
 
 .env
+```
 DEBUG=1
 SECRET_KEY=django-insecure-cw2)7zm6%gf7(f_^3e6x0dr#3c-^omhx6yj-k5plwelys%1#iz
 SQL_ENGINE=django.db.backends.postgresql
@@ -49,3 +52,4 @@ SQL_PASSWORD=hello_django
 SQL_HOST=db
 SQL_PORT=5432
 DATABASE=postgres
+```
